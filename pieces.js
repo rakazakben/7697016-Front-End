@@ -67,3 +67,22 @@ boutonDecroissant.addEventListener("click", function(){
     });
     console.log(listeOrdonnee);
 });
+const noms = pieces.map(pieces => pieces.nom);
+
+for(let i= noms.length -1;i >= 0; i--){
+    if(pieces[i].prix > 35){
+        noms.splice(i,1);
+    }
+
+}
+console.log(noms);
+const abordablesPieces = document.createElement("ul");
+
+for(let i = 0; i < noms.length; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordablesPieces.appendChild(nomElement);
+}
+
+const listeAbordable= document.querySelector(".abordable");
+listeAbordable.appendChild(abordablesPieces);
